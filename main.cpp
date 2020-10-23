@@ -14,11 +14,11 @@ int main() {
   SourceArray reversed;
   SourceArray rotated;
   for (long unsigned int i = 0; i < HOW_MANY_ELEMENTS; ++i) {
-    sorted[i] = round(numberGenerator(engine));
-    random[i] = round(numberGenerator(engine));
-    organPipe[i] = round(numberGenerator(engine));
-    reversed[i] = round(numberGenerator(engine));
-    rotated[i] = round(numberGenerator(engine));
+    sorted[i] = static_cast<int>(numberGenerator(engine));
+    random[i] = static_cast<int>(numberGenerator(engine));
+    organPipe[i] = static_cast<int>(numberGenerator(engine));
+    reversed[i] = static_cast<int>(numberGenerator(engine));
+    rotated[i] = static_cast<int>(numberGenerator(engine));
   }
   std::sort(sorted.begin(), sorted.end());
 

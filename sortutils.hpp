@@ -1,4 +1,6 @@
 #include <iostream>
+#include <array>
+#include <vector>
 
 const std::size_t HOW_MANY_ELEMENTS = 250000;
 const std::uint8_t HOW_MANY_TIMES = 25;

@@ -3,6 +3,7 @@
 #include <chrono>
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 void initializeRawArrayFromStdArray(
     const std::array<int, HOW_MANY_ELEMENTS> &source, int dest[]) {
@@ -12,7 +13,7 @@ void initializeRawArrayFromStdArray(
 }
 
 void organPipeStdArray(std::array<int, HOW_MANY_ELEMENTS> &data) {
-  for (long unsigned int i = data.size() / 2; i < data.size(); ++i) {
+  for (decltype(data.size()) i = data.size() / 2; i < data.size(); ++i) {
     data[i] = data[data.size() - i - 1];
   }
 }
@@ -25,7 +26,7 @@ void evaluateRawArray(const SourceArray &random, const SourceArray &sorted,
     int rawRandom[HOW_MANY_ELEMENTS];
     initializeRawArrayFromStdArray(random, rawRandom);
     auto start = std::chrono::high_resolution_clock::now();
-    std::sort(std::begin(rawRandom), std::end(rawRandom));
+    std::sort(rawRandom, rawRandom+250000);
     auto end = std::chrono::high_resolution_clock::now();
     auto duration =
         std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
